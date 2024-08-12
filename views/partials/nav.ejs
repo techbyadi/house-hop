@@ -3,8 +3,7 @@
 <nav>
   <% if (user) { %>
     <i class="fas fa-home fa-2x">HouseHop</i>
-    <h1>Welcome, <%= user.username %>!</h1>
-    <a href="/users">Users</a>
+    <h2>Welcome, <%= user.username %>!</h2>
     <a href="/auth/sign-out">Sign out</a>
   <% } else { %>
     <i class="fas fa-home fa-2x">HouseHop</i>
