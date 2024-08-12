@@ -93,4 +93,21 @@ body > section {
   align-items: center;
   justify-content: space-evenly;
   padding: 30px 20px 30px 30px;
+  color: whitesmoke;
+}
+
+form > button {
+  grid-column: span 2;
+  width: 90px;
+  margin-left: auto;
+  font-size: 20px;
+  background-color: #22889d;  
+  border-radius: 8px;
+  color: whitesmoke;
+}
+
+form {
+  display:block;
+  font-size: 20px;
+  font-family: "Font Awesome 5 Free";
 }

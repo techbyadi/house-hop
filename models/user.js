@@ -12,6 +12,9 @@ const userSchema = new Schema({
     required: true,
     select: false
   },
+  minPrice: Number,
+  maxPrice: Number,
+  homeType: String
 }, {
   timestamps: true
 })
