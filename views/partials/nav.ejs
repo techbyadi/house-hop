@@ -2,12 +2,14 @@
 <body>
 <nav>
   <% if (user) { %>
+    <i class="fas fa-home fa-2x">HouseHop</i>
     <h1>Welcome, <%= user.username %>!</h1>
     <a href="/users">Users</a>
     <a href="/auth/sign-out">Sign out</a>
   <% } else { %>
-    <h1>Please sign in!</h1>
+    <i class="fas fa-home fa-2x">HouseHop</i>
     <a href="/auth/sign-up">Sign up</a>
     <a href="/auth/sign-in">Sign in</a>
   <% } %>
 </nav>
+<section>
