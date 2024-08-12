@@ -83,7 +83,7 @@ nav > a.active {
 }
 
 body > section {
-  height: 600px;
+  min-height: 100vh;
   background-size: cover; 
   background-position: center;
   background-color: rgb(6, 40, 52);
