@@ -19,5 +19,6 @@ router.get('/:houseId', isSignedIn, housesCtrl.show)
 router.post('/', isSignedIn, housesCtrl.create);
 router.post('/:houseId/reviews', isSignedIn, housesCtrl.createReview);
 
+router.delete('/:houseId', isSignedIn, housesCtrl.delete);
 
 export { router }

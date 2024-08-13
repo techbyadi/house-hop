@@ -10,20 +10,37 @@
   background-color: rgb(214, 222, 223);
   border-radius: 8px;
   margin: 8px 8px 8px 8px;
+  box-shadow: 1px 1px 4px rgb(218, 223, 225);
+
 }
 
 #add-home{
   background-image:url('../addhome.webp');
   background-size: cover; 
   background-position: center;
-
 }
 
 div.house-tile {
   border:1px solid black;
-  color: rgb(6, 40, 52);;
+  color: rgb(6, 40, 52);
 }
 
 a, u {
   text-decoration: none;
+}
+
+.card-footer {
+  font-size: 18px;
+  justify-content: space-between;
+}
+
+.card-footer * {
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

@@ -59,10 +59,21 @@ async function createReview(req, res) {
   }
 }
 
+async function deleteHouse(req, res) {
+  try {
+    await House.findByIdAndDelete(req.params.houseId);
+    res.redirect('/houses')
+  } catch (error) {
+    console.log(error);
+    res.redirect('/houses')
+  }
+}
+
 export {
   index,
   newHouse as new,
   create,
   show,
-  createReview
+  createReview,
+  deleteHouse as delete
 }

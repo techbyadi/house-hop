@@ -1,6 +1,43 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/houses/index.css" />
 <%- include('../partials/nav') %>
+
+<h2>Planning to Visit</h2>
+<div class = "planning-to-visit">
+<a href="/houses/new"><div class="house-tile" id="add-home">
+</div></a>
+  <% houses.forEach(house => { %>
+    <% if (house.addedBy.equals(user?._id) && house.visited === 'No' ) { %>
+    <a href="/houses/<%= house._id %>">
+    <div class="house-tile">
+      <ul>
+          <li>
+          Price: <%= house.price %>
+          </li>
+            <br>
+            <li>
+          Number of bedrooms: <%= house.bedrooms %>
+        </li>
+            <br>
+            <li>
+          Number of bathrooms: <%= house.bathrooms %>
+        </li>
+      </ul>
+    </div> 
+    </a>
+    <div class="card-footer">
+      <form 
+            action="/houses/<%= house._id %>?_method=DELETE" 
+            method="POST"
+          >
+            <button type="submit">X</button>
+          </form>
+    </div>
+    <% } %>
+    <% }) %>
+
+</div>
+
 <h2>Visited Homes </h2>
 <div class = "visited-homes">
   <% houses.forEach(house => { %>
@@ -21,31 +58,14 @@
         </li>
       </ul>
     </div> </a>
-    <% } %>
-    <% }) %>
-</div>
-<h2>Planning to Visit </h2>
-<div class = "planning-to-visit">
-  <a href="/houses/new"><div class="house-tile" id="add-home">
-  </div></a>
-  <% houses.forEach(house => { %>
-    <% if (house.addedBy.equals(user?._id) && house.visited === 'No' ) { %>
-    <a href="/houses/<%= house._id %>">
-    <div class="house-tile">
-      <ul>
-          <li>
-          Price: <%= house.price %>
-          </li>
-            <br>
-            <li>
-          Number of bedrooms: <%= house.bedrooms %>
-        </li>
-            <br>
-            <li>
-          Number of bathrooms: <%= house.bathrooms %>
-        </li>
-      </ul>
-    </div> </a>
+    <div class="card-footer">
+      <form 
+            action="/houses/<%= house._id %>?_method=DELETE" 
+            method="POST"
+          >
+            <button type="submit">X</button>
+          </form>
+    </div>
     <% } %>
     <% }) %>
 </div>
