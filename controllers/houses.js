@@ -35,8 +35,8 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
-    
-    const house = await House.findById(req.params.houseId).populate('addedBy')
+    const house = await House.findById(req.params.houseId).populate(['addedBy', 'reviews.reviewer']);
+    console.log(house);
     res.render('houses/show', {
       house
     })
@@ -50,8 +50,8 @@ async function show(req, res) {
 async function createReview(req, res) {
   try {
     const house = await House.findById(req.params.houseId);
+    req.body.reviewer = req.session.user._id;
     house.reviews.push(req.body);
-    house.reviews.reviewer = req.session.user._id;
     await house.save();
     res.redirect(`/houses/${house._id}`);
   } catch (error) {
