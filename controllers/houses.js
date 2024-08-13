@@ -33,8 +33,22 @@ async function create(req, res) {
   }
 }
 
+async function show(req, res) {
+  try {
+    const house = await House.findById(req.params.houseId).populate('addedBy')
+    res.render('houses/show', {
+      house
+    })
+  } catch (error) {
+    console.log(error);
+    res.redirect('/houses')
+    
+  }
+}
+
 export {
   index,
   newHouse as new,
-  create
+  create,
+  show
 }

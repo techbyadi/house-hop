@@ -111,3 +111,29 @@ form {
   font-size: 20px;
   font-family: "Font Awesome 5 Free";
 }
+
+table {
+  width: 50%;
+  margin: auto;
+  border-collapse: collapse;
+  background-color: #22889d;   
+  
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  font-weight: bold;
+  color: rgb(6, 40, 52);
+  border: .5px solid whitesmoke;
+  background-color: #b0d3db;  
+  font-family: "Font Awesome 5 Free";
+}
+
+th {
+  text-align: center;
+  background-color: #22889d; 
+  color: white;
+  text-transform: uppercase;
+  font-family: "Font Awesome 5 Free";  
+}

@@ -12,6 +12,7 @@
   </div></a>
   <% houses.forEach(house => { %>
     <% if (house.addedBy.equals(user?._id)) { %>
+    <a href="/houses/<%= house._id %>">
     <div class="img-placeholder">
       <ul>
           <li>
@@ -26,7 +27,7 @@
           Number of bathrooms: <%= house.bathrooms %>
         </li>
       </ul>
-    </div>
+    </div> </a>
     <% } %>
     <% }) %>
 </div>

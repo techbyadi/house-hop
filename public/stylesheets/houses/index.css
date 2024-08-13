@@ -23,3 +23,7 @@ div.img-placeholder {
   border:1px solid black;
   color: rgb(6, 40, 52);;
 }
+
+a, u {
+  text-decoration: none;
+}

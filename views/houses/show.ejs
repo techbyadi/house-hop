@@ -1,0 +1,34 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+<table>
+  <tr>
+    <th colspan="2">House Details</th>
+</tr>
+<tr>
+  <td>Price</td>
+  <td><%= house.price %></td>
+</tr>
+<tr>
+  <td>Number of bedrooms</td>
+  <td><%= house.bedrooms %></td>
+</tr>
+<tr>
+  <td>Number of bathrooms</td>
+  <td><%= house.bathrooms %></td>
+</tr>
+</tr>
+<tr>
+  <td>Size</td>
+  <td><%= house.size %></td>
+</tr>
+<tr>
+  <td>Built year</td>
+  <td><%= house.builtYear %></td>
+</tr>
+<tr>
+  <td>Visted</td>
+  <td><%= house.visited ? 'Visited' : 'Have\'t visited yet' %></td>
+</tr>
+</table>
+
+<%- include('../partials/footer') %>
