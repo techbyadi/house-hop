@@ -73,9 +73,9 @@ const houseSchema = new Schema(
     }, 
     reviews: [reviewSchema],
     visited: {
-      type: Boolean,
-      default: false
-    }
+      type: String,
+      enum: ["Yes", "No"],
+    },
   },
   {
     timestamps: true,

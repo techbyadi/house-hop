@@ -4,7 +4,7 @@
   justify-content: space-around;
 }
 
-.img-placeholder {
+.house-tile {
   width: 200px;
   height: 200px;
   background-color: rgb(214, 222, 223);
@@ -19,7 +19,7 @@
 
 }
 
-div.img-placeholder {
+div.house-tile {
   border:1px solid black;
   color: rgb(6, 40, 52);;
 }

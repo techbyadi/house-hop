@@ -19,7 +19,6 @@ async function newHouse(req, res) {
 async function create(req, res) {
   try {
     req.body.addedBy = req.session.user._id
-    req.body.visited = !!req.body.visited;
     for (let key in req.body) {
       if (req.body[key] === "") delete req.body[key];
     }

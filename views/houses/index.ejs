@@ -3,17 +3,35 @@
 <%- include('../partials/nav') %>
 <h2>Visited Homes </h2>
 <div class = "visited-homes">
-  <div class="img-placeholder" >
-  </div>
+  <% houses.forEach(house => { %>
+    <% if (house.addedBy.equals(user?._id) && house.visited === 'Yes' ) { %>
+    <a href="/houses/<%= house._id %>">
+    <div class="house-tile">
+      <ul>
+          <li>
+          Price: <%= house.price %>
+          </li>
+            <br>
+            <li>
+          Number of bedrooms: <%= house.bedrooms %>
+        </li>
+            <br>
+            <li>
+          Number of bathrooms: <%= house.bathrooms %>
+        </li>
+      </ul>
+    </div> </a>
+    <% } %>
+    <% }) %>
 </div>
 <h2>Planning to Visit </h2>
 <div class = "planning-to-visit">
-  <a href="/houses/new"><div class="img-placeholder" id="add-home">
+  <a href="/houses/new"><div class="house-tile" id="add-home">
   </div></a>
   <% houses.forEach(house => { %>
-    <% if (house.addedBy.equals(user?._id)) { %>
+    <% if (house.addedBy.equals(user?._id) && house.visited === 'No' ) { %>
     <a href="/houses/<%= house._id %>">
-    <div class="img-placeholder">
+    <div class="house-tile">
       <ul>
           <li>
           Price: <%= house.price %>

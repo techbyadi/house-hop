@@ -1,6 +1,59 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-<form action="/houses/" method="POST">
+
+<h2>Enter house details</h2>
+<table>
+  <form action="/houses/" method="POST">
+  <tr>
+    <th colspan="2">House Details</th>
+</tr>
+<tr>
+  <td>Price:</td>
+  <td> <input type="text" name="price" id="price" /></td>
+</tr>
+<tr>
+  <td>Property type:</td>
+  <td><select name="propertyType" id="propertyType">
+    <option value="Single Family">Single Family</option>
+    <option value="Town House">Town House</option>
+    <option value="Condo">Condo</option>
+    <option value="Multi Family">Multi Family</option>
+  </select>
+</td>
+</tr>
+<tr>
+  <td>No. of bedrooms:</td>
+  <td><input type="text" name="bedrooms" id="bedrooms" /></td>
+</tr>
+<tr>
+  <td>Number of bathrooms</td>
+  <td><input type="text" name="bathrooms" id="bathrooms" /></td>
+</tr>
+<tr>
+  <td>Size (in sq ft):</td>
+  <td><input type="text" name="size" id="size"></td>
+</tr>
+<tr>
+  <td>Built year: </td>
+  <td><input type="text" name="builtYear" id="builtYear"></td>
+</tr>
+<tr>
+  <td>Visted:</td>
+  <td><select name="visited">
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
+  </td>
+</tr>
+
+<tr>
+  <th class="form-button" colspan="2"><button type="submit">Save</button></th>
+</tr>
+</form>
+</table>
+
+
+<!-- <form action="/houses/" method="POST">
   <h2>Enter house details</h2>
   <label for="price">Price: </label>
   <input type="text" name="price" id="price" /> </br></br>
@@ -31,7 +84,7 @@
 
   <label for="neighborhood">Neighborhood: </label>
   <input type="text" name="neighborhood" id="neighborhood"> </br></br>
- -->
+ 
   <label for="propertyType">Property type: </label>
   <select name="propertyType" id="propertyType">
     <option value="Single Family">Single Family</option>
@@ -44,8 +97,8 @@
   <input type="text" name="builtYear" id="builtYear"> </br></br>
   
   <label for="visted">Visited</label>
-  <input type="checkbox" name="visited" id="visited" value=""> </br></br>
+  <input type="checkbox" name="visited" id="visited"> </br></br>
 
   <button type="submit">Save</button>
-</form>
+</form> -->
 <%- include('../partials/footer') %>
