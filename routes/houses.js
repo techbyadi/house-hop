@@ -12,14 +12,12 @@ const router = Router()
 //router.get('/', isSignedIn, usersCtrl.index)
 
 //protected routes
-
 router.get('/', isSignedIn, housesCtrl.index)
-
 router.get('/new', isSignedIn, housesCtrl.new);
+router.get('/:houseId', isSignedIn, housesCtrl.show)
 
 router.post('/', isSignedIn, housesCtrl.create);
+router.post('/:houseId/reviews', isSignedIn, housesCtrl.createReview);
 
-//localhost:3000/houses/:houseId
-router.get('/:houseId', isSignedIn, housesCtrl.show)
 
 export { router }

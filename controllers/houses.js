@@ -35,6 +35,7 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
+    
     const house = await House.findById(req.params.houseId).populate('addedBy')
     res.render('houses/show', {
       house
@@ -46,9 +47,23 @@ async function show(req, res) {
   }
 }
 
+async function createReview(req, res) {
+  try {
+    const house = await House.findById(req.params.houseId);
+    house.reviews.push(req.body);
+    house.reviews.reviewer = req.session.user._id;
+    await house.save();
+    res.redirect(`/houses/${house._id}`);
+  } catch (error) {
+    console.log(error);
+    res.redirect('/')
+  }
+}
+
 export {
   index,
   newHouse as new,
   create,
-  show
+  show,
+  createReview
 }

@@ -9,6 +9,10 @@
   <td><%= house.price %></td>
 </tr>
 <tr>
+  <td>Type</td>
+  <td><%= house.propertyType %></td>
+</tr>
+<tr>
   <td>Number of bedrooms</td>
   <td><%= house.bedrooms %></td>
 </tr>
@@ -31,4 +35,36 @@
 </tr>
 </table>
 
+
+<h2>Reviews</h2>
+
+
+<table>
+  <form id="add-review-form" action="/houses/<%= house.id %>/reviews" method="POST">
+<tr>
+    <th colspan="2">Add Review</th>
+</tr>
+<tr>
+  <td> <label for="content-textarea">Notes</label></td>
+  <td><textarea name="notes" id="content-textarea"></textarea></td>
+</tr>
+<tr>
+  <td> <label for="rating-select">Rating:</label></td>
+  <td><select name="rating" id="rating-select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5" selected>5</option>
+  </select>
+  </td>
+</tr>
+<tr>
+  <th class="form-button" colspan="2"><button type="submit">Add</button></th>
+</tr>
+
+</form>
+</table>
+
+  
 <%- include('../partials/footer') %>

@@ -96,7 +96,7 @@ body > section {
   color: whitesmoke;
 }
 
-form > button {
+button {
   grid-column: span 2;
   width: 90px;
   margin-left: auto;
@@ -106,11 +106,22 @@ form > button {
   color: whitesmoke;
 }
 
-form {
+select {
+  grid-column: span 2;
+  width: 90px;
+  margin-left: auto;
+  font-size: 20px;
+  background-color: #22889d;  
+  border-radius: 8px;
+  color: whitesmoke;
+}
+
+
+/* form {
   display:block;
   font-size: 20px;
   font-family: "Font Awesome 5 Free";
-}
+} */
 
 table {
   width: 50%;
@@ -136,4 +147,9 @@ th {
   color: white;
   text-transform: uppercase;
   font-family: "Font Awesome 5 Free";  
+}
+
+th.form-button {
+  text-align: center;
+  background-color: #b0d3db;  
 }
