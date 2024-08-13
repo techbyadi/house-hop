@@ -69,11 +69,40 @@ async function deleteHouse(req, res) {
   }
 }
 
+async function edit(req, res) {
+  try {
+    const house = await House.findById(req.params.houseId);
+    res.render('houses/edit', {
+      house
+    })
+  } catch (error) {
+    console.log(error);
+    res.redirect('houses')
+  }
+}
+
+async function update(req, res) {
+  try {
+    for (let key in req.body) {
+      if (req.body[key] === "") delete req.body[key];
+    }
+    const house = await House.findByIdAndUpdate(
+      req.params.houseId, req.body, {new: true}
+    )
+    res.redirect(`/houses/${house._id}`)
+  } catch (error) {
+    console.log(error);
+    res.redirect('/houses');
+  }
+}
+
 export {
   index,
   newHouse as new,
   create,
   show,
   createReview,
-  deleteHouse as delete
+  deleteHouse as delete,
+  edit,
+  update
 }

@@ -1,0 +1,59 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<table>
+  <form action="/houses/<%= house._id %>?_method=PUT" method="POST">
+  <tr>
+    <th colspan="2">Update House Details</th>
+</tr>
+<tr>
+  <td>Price:</td>
+  <td> <input type="text" name="price" id="price" value="<%= house.price %>" /></td>
+</tr>
+<tr>
+  <td>Property type:</td>
+  <td><select name="propertyType" id="propertyType">
+    <option value="<%= house.propertyType %>">
+      <%= house.propertyType %>
+    </option>
+    <option value="Single Family">Single Family</option>
+    <option value="Town House">Town House</option>
+    <option value="Condo">Condo</option>
+    <option value="Multi Family">Multi Family</option>
+  </select>
+</td>
+</tr>
+<tr>
+  <td>No. of bedrooms:</td>
+  <td><input type="text" name="bedrooms" id="bedrooms" value="<%= house.bedrooms %>" /></td>
+</tr>
+<tr>
+  <td>Number of bathrooms</td>
+  <td><input type="text" name="bathrooms" id="bathrooms"  value="<%= house.bathrooms %>"/></td>
+</tr>
+<tr>
+  <td>Size (in sq ft):</td>
+  <td><input type="text" name="size" id="size" value="<%= house.size %>"></td>
+</tr>
+<tr>
+  <td>Built year: </td>
+  <td><input type="text" name="builtYear" id="builtYear" value="<%= house.builtYear %>"></td>
+</tr>
+<tr>
+  <td>Visted:</td>
+  <td><select name="visited">
+    <option value="<%= house.visited %>">
+      <%= house.visited %>
+    </option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
+  </td>
+</tr>
+
+<tr>
+  <th class="form-button" colspan="2"><button type="submit">Update Details</button></th>
+</tr>
+</form>
+</table>
+<%- include('../partials/footer') %>

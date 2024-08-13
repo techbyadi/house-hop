@@ -33,6 +33,13 @@
   <td>Visted</td>
   <td><%= house.visited %></td>
 </tr>
+<tr>
+  <th class="form-button" colspan="2">
+    <a href="/houses/<%= house._id %>/edit">
+    <button type="submit">Edit Details</button>
+    </a>
+  </th>
+</tr>
 </table>
 
 <% if (house.visited === 'Yes') { %>
