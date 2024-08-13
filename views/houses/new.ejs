@@ -1,0 +1,51 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+<form action="/houses/" method="POST">
+  <h2>Enter house details</h2>
+  <label for="price">Price: </label>
+  <input type="text" name="price" id="price" /> </br></br>
+  <label for="bedrooms">No. of bedrooms: </label>
+  <input type="text" name="bedrooms" id="bedrooms" /> </br></br>
+  <label for="bathrooms">No. of bathrooms: </label>
+  <input type="text" name="bathrooms" id="bathrooms" /> </br> </br>
+  <label for="size">Size (in sq ft): </label>
+  <input type="text" name="size" id="size">
+  <!-- <h4>Address: </h4>
+  <label for="streetName">Street name: </label>
+  <input type="text" name="streetName" id="streetName"> </br></br>
+
+  <label for="apartmentNumber">Apartment number: </label>
+  <input type="text" name="apartmentNumber" id="apartmentNumber"> </br></br>
+  
+  <label for="city">City: </label>
+  <input type="text" name="city" id="city"> </br></br>
+
+  <label for="state">State: </label>
+  <input type="text" name="state" id="state"> </br></br>
+
+  <label for="country">Country: </label>
+  <input type="text" name="country" id="country"> </br></br>
+
+  <label for="zipCode">Zip code :</label>
+  <input type="text" name="zipCode" id="zipCode"> </br></br>
+
+  <label for="neighborhood">Neighborhood: </label>
+  <input type="text" name="neighborhood" id="neighborhood"> </br></br>
+ -->
+  <label for="propertyType">Property type: </label>
+  <select name="propertyType" id="propertyType">
+    <option value="Single Family">Single Family</option>
+    <option value="Town House">Town House</option>
+    <option value="Condo">Condo</option>
+    <option value="Multi Family">Multi Family</option>
+  </select> </br></br>
+
+  <label for="builtYear">Built year:  </label>
+  <input type="text" name="builtYear" id="builtYear"> </br></br>
+  
+  <label for="visted">Visited</label>
+  <input type="checkbox" name="visited" id="visited" value=""> </br></br>
+
+  <button type="submit">Save</button>
+</form>
+<%- include('../partials/footer') %>

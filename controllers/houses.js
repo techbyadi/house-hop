@@ -1,14 +1,40 @@
 import { House } from "../models/house.js"
-import { User } from "../models/user.js"
 
 async function index(req, res) {
-  const users = await User.find({})
-  console.log(users);
-  res.render('houses/index', {
-    users
+  try {
+    const houses = await House.find({}).populate('addedBy')
+    res.render('houses/index', {
+      houses
   })
+  } catch (error) {
+    console.log(error);
+    res.redirect('/')
+  }
+}
+
+async function newHouse(req, res) {
+  res.render('houses/new.ejs');
+}
+
+async function create(req, res) {
+  try {
+    req.body.addedBy = req.session.user._id
+    req.body.visited = !!req.body.visited;
+    for (let key in req.body) {
+      if (req.body[key] === "") delete req.body[key];
+    }
+
+    const house = await House.create(req.body);
+    console.log("house data", house);
+    res.redirect('/houses')
+  } catch (error) {
+    console.log(error);
+    res.redirect('/houses/new');
+  }
 }
 
 export {
-  index
+  index,
+  newHouse as new,
+  create
 }

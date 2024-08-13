@@ -3,10 +3,31 @@
 <%- include('../partials/nav') %>
 <h2>Visited Homes </h2>
 <div class = "visited-homes">
+  <div class="img-placeholder" >
+  </div>
 </div>
 <h2>Planning to Visit </h2>
-<div class = "visited-homes">
-  <a href=""><div class="img-placeholder" id="add-home">
+<div class = "planning-to-visit">
+  <a href="/houses/new"><div class="img-placeholder" id="add-home">
   </div></a>
+  <% houses.forEach(house => { %>
+    <% if (house.addedBy.equals(user?._id)) { %>
+    <div class="img-placeholder">
+      <ul>
+          <li>
+          Price: <%= house.price %>
+          </li>
+            <br>
+            <li>
+          Number of bedrooms: <%= house.bedrooms %>
+        </li>
+            <br>
+            <li>
+          Number of bathrooms: <%= house.bathrooms %>
+        </li>
+      </ul>
+    </div>
+    <% } %>
+    <% }) %>
 </div>
 <%- include('../partials/footer') %>

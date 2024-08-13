@@ -22,7 +22,7 @@ const addressSchema = new Schema({
     type: String, 
     required: true
   }, 
-  apartmentNumner: String, 
+  apartmentNumber: String, 
   city: {
     type: String, 
     required: true
@@ -55,7 +55,7 @@ const houseSchema = new Schema(
     bedrooms: Number,
     bathrooms: Number,
     size: Number,
-    address: [addressSchema],
+    address: addressSchema,
     propertyType: {
       type: String,
       enum: ["Single Family", "Town House", "Condo", "Multi Family"],

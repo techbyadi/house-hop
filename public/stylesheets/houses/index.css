@@ -1,4 +1,4 @@
-.visited-homes{
+.visited-homes, .planning-to-visit{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -21,4 +21,5 @@
 
 div.img-placeholder {
   border:1px solid black;
+  color: rgb(6, 40, 52);;
 }

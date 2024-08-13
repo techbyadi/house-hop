@@ -14,4 +14,8 @@ const router = Router()
 //protected routes
 router.get('/', isSignedIn, housesCtrl.index)
 
+router.get('/new', isSignedIn, housesCtrl.new);
+
+router.post('/', isSignedIn, housesCtrl.create);
+
 export { router }
