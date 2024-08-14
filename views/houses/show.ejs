@@ -38,7 +38,11 @@
     <a href="/houses/<%= house._id %>/edit">
     <button type="submit">Edit Details</button>
     </a>
+    <form action="/houses/<%= house._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete</button></form>
   </th>
+    
+  </div>
 </tr>
 </table>
 

@@ -11,16 +11,17 @@ const router = Router()
 // protected routes
 //router.get('/', isSignedIn, usersCtrl.index)
 
+
+
 //protected routes
 router.get('/', isSignedIn, housesCtrl.index)
 router.get('/new', isSignedIn, housesCtrl.new);
 router.get('/:houseId', isSignedIn, housesCtrl.show)
 router.get('/:houseId/edit', isSignedIn, housesCtrl.edit);
-
-
 router.post('/', isSignedIn, housesCtrl.create);
 router.post('/:houseId/reviews', isSignedIn, housesCtrl.createReview);
-
 router.delete('/:houseId', isSignedIn, housesCtrl.delete);
 router.put('/:houseId', isSignedIn, housesCtrl.update);
+
+
 export { router }

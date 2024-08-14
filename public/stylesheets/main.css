@@ -138,7 +138,7 @@ th, td {
   text-align: left;
   font-weight: bold;
   color: rgb(6, 40, 52);
-  border: .5px solid whitesmoke;
+  border: .2px solid whitesmoke;
   background-color: #b0d3db;  
   font-family: "Font Awesome 5 Free";
 }
@@ -154,4 +154,10 @@ th {
 th.form-button {
   text-align: center;
   background-color: #b0d3db;  
+}
+
+td.form-button {
+  text-align: center;
+  background-color: #b0d3db;  
+  border-bottom: 0px;
 }

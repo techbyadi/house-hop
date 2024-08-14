@@ -24,7 +24,6 @@ async function create(req, res) {
     }
 
     const house = await House.create(req.body);
-    console.log("house data", house);
     res.redirect('/houses')
   } catch (error) {
     console.log(error);
