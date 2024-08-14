@@ -22,7 +22,15 @@ async function create(req, res) {
     for (let key in req.body) {
       if (req.body[key] === "") delete req.body[key];
     }
-
+    req.body.address = {
+      streetName : req.body.streetName,
+      apartmentNumber: req.body.apartmentNumber,
+      city: req.body.city,
+      state: req.body.state,
+      country: req.body.country,
+      zipCode: req.body.zipCode,
+      neighborhood: req.body.neighborhood
+    }
     const house = await House.create(req.body);
     res.redirect('/houses')
   } catch (error) {
@@ -34,7 +42,6 @@ async function create(req, res) {
 async function show(req, res) {
   try {
     const house = await House.findById(req.params.houseId).populate(['addedBy', 'reviews.reviewer']);
-    console.log(house);
     res.render('houses/show', {
       house
     })
@@ -85,6 +92,8 @@ async function update(req, res) {
     for (let key in req.body) {
       if (req.body[key] === "") delete req.body[key];
     }
+
+    console.log(req.body);
     const house = await House.findByIdAndUpdate(
       req.params.houseId, req.body, {new: true}
     )

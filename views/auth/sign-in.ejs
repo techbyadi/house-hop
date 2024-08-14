@@ -1,13 +1,24 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<form class="auth" action="/auth/sign-in" method="POST">
-  <h1>Sign in</h1>
-  <label for="username">Username:</label>
-  <input type="text" name="username" id="username" /> </br></br>
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password" /> </br></br>
-  <button type="submit">Sign in</button>
+  <table>
+    <form class="auth" action="/auth/sign-in" method="POST">
+  <tr>
+    <th colspan="2">Sign In</th>
+  </tr>
+  <tr>
+    <td>Username</td>
+    <td><input type="text" name="username" id="username" /></label></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td> <input type="password" name="password" id="password" /></label></td>
+  </tr>
+  <tr>
+    <th class="form-button" colspan="2"><button type="submit">Sign in</button></th>
+  </tr>
 </form>
+</table>
+
 
 <%- include('../partials/footer') %>

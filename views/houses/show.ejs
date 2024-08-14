@@ -33,6 +33,73 @@
   <td>Visted</td>
   <td><%= house.visited %></td>
 </tr>
+
+<tr>
+  <td>
+    Street name:
+  </td>
+  <td>
+    <%= house.address.streetName %>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    Apartment number:
+  </td>
+  <td>
+    <%= house.address.apartmentNumber %>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    City:
+  </td>
+  <td>
+    <%= house.address.city %>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    State:
+  </td>
+  <td>
+    <%= house.address.state %>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    Country: 
+  </td>
+  <td>
+    <%= house.address.country %>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    Zip code:
+  </td>
+  <td>
+    <%= house.address.zipCode %>
+  </td>
+</tr>
+
+
+<tr>
+  <td>
+    Neighborhood:
+  </td>
+  <td>
+    <%= house.address.neighborhood %>
+  </td>
+</tr>
+
+
+
 <tr>
   <th class="form-button" colspan="2">
     <a href="/houses/<%= house._id %>/edit">
@@ -48,7 +115,7 @@
 
 <% if (house.visited === 'Yes') { %>
 
-<h2>Reviews</h2>
+  <br>
 
 <% if (house.reviews.length) { %>
   <table>
@@ -75,6 +142,10 @@
   <form id="add-review-form" action="/houses/<%= house.id %>/reviews" method="POST">
 <tr>
     <th colspan="2">Add Notes</th>
+</tr>
+<tr>
+  <td>Visited Date</td>
+  <td><input type="date" name="visitedDate"> </td>
 </tr>
 <tr>
   <td>Notes</td>

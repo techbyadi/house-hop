@@ -29,16 +29,6 @@ a, u {
   text-decoration: none;
 }
 
-.card-footer {
-  font-size: 18px;
-  justify-content: space-between;
-}
-
-.card-footer * {
-  margin-top: 8px;
-  margin-left: 10px;
-}
-
 main {
   display: flex;
   flex-wrap: wrap;

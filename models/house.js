@@ -22,7 +22,7 @@ const addressSchema = new Schema({
     type: String, 
     required: true
   }, 
-  apartmentNumber: String, 
+  apartmentNumber: Number, 
   city: {
     type: String, 
     required: true
