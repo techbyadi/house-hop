@@ -8,7 +8,7 @@
 </tr>
 <tr>
   <td>Price ($) </td>
-  <td> <input type="text" name="price" id="price" value="<%= house.price %>" /></td>
+  <td> <input type="text" name="price" id="price" value="<%= house.price %>" required /></td>
 </tr>
 <tr>
   <td>Property Type</td>
@@ -25,19 +25,19 @@
 </tr>
 <tr>
   <td>Bedrooms</td>
-  <td><input type="text" name="bedrooms" id="bedrooms" value="<%= house.bedrooms %>" /></td>
+  <td><input type="text" name="bedrooms" id="bedrooms" value="<%= house.bedrooms %>" required /></td>
 </tr>
 <tr>
   <td>Bathrooms</td>
-  <td><input type="text" name="bathrooms" id="bathrooms"  value="<%= house.bathrooms %>"/></td>
+  <td><input type="text" name="bathrooms" id="bathrooms"  value="<%= house.bathrooms %>" required /></td>
 </tr>
 <tr>
   <td>Size (sq ft)</td>
-  <td><input type="text" name="size" id="size" value="<%= house.size %>"></td>
+  <td><input type="text" name="size" id="size" value="<%= house.size %>" required /></td>
 </tr>
 <tr>
   <td>Built Year</td>
-  <td><input type="text" name="builtYear" id="builtYear" value="<%= house.builtYear %>"></td>
+  <td><input type="text" name="builtYear" id="builtYear" value="<%= house.builtYear %>" required /></td>
 </tr>
 <tr>
   <td>Visted</td>
@@ -56,7 +56,7 @@
     Street Name
   </td>
   <td>
-    <input type="text" name="streetName" id="streetName" value="<%= house.address.streetName %>">
+    <input type="text" name="streetName" id="streetName" value="<%= house.address.streetName %>" required />
   </td>
 </tr>
 
@@ -65,7 +65,7 @@
     Apartment Number
   </td>
   <td>
-    <input type="text" name="apartmentNumber" id="apartmentNumber" value="<%= house.address.apartmentNumber %>">
+    <input type="text" name="apartmentNumber" id="apartmentNumber" value="<%= house.address.apartmentNumber %>" required />
   </td>
 </tr>
 
@@ -74,7 +74,7 @@
     City
   </td>
   <td>
-    <input type="text" name="city" id="city" value="<%= house.address.city %>">
+    <input type="text" name="city" id="city" value="<%= house.address.city %>" required />
   </td>
 </tr>
 
@@ -83,7 +83,7 @@
     State
   </td>
   <td>
-    <input type="text" name="state" id="state" value="<%= house.address.state %>">
+    <input type="text" name="state" id="state" value="<%= house.address.state %>" required />
   </td>
 </tr>
 
@@ -92,7 +92,7 @@
     Country
   </td>
   <td>
-    <input type="text" name="country" id="country" value="<%= house.address.country %>">
+    <input type="text" name="country" id="country" value="<%= house.address.country %>" required />
   </td>
 </tr>
 
@@ -101,7 +101,7 @@
     Zip Code
   </td>
   <td>
-    <input type="text" name="zipCode" id="zipCode" value="<%= house.address.zipCode %>">
+    <input type="text" name="zipCode" id="zipCode" value="<%= house.address.zipCode %>" required />
   </td>
 </tr>
 
@@ -111,7 +111,7 @@
     Neighborhood
   </td>
   <td>
-    <input type="text" name="neighborhood" id="neighborhood" value="<%= house.address.neighborhood %>">
+    <input type="text" name="neighborhood" id="neighborhood" value="<%= house.address.neighborhood %>" required />
   </td>
 </tr>
 

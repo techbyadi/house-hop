@@ -171,11 +171,11 @@
                 </tr>
                 <tr>
                   <td>Visited Date</td>
-                  <td><input type="date" name="visitedDate"> </td>
+                  <td><input type="date" name="visitedDate" required /> </td>
                 </tr>
                 <tr>
                   <td>Notes</td>
-                  <td> <textarea name="notes" id="content-textarea"></textarea></td>
+                  <td> <textarea name="notes" id="content-textarea" required ></textarea></td>
                 </tr>
                 <tr>
                   <td>Rating </td>
@@ -205,11 +205,11 @@
         <tr>
           <td>Visited Date</td>
           <td><input type="date" name="visitedDate"
-              value="<%= new Date(house.reviews.visitedDate).toISOString().split('T')[0] %>"> </td>
+              value="<%= new Date(house.reviews.visitedDate).toISOString().split('T')[0] %>" required /> </td>
         </tr>
         <tr>
           <td>Notes</td>
-          <td> <textarea name="notes" id="content-textarea"><%= house.reviews.notes %></textarea></td>
+          <td> <textarea name="notes" id="content-textarea" required><%= house.reviews.notes %></textarea></td>
         </tr>
         <tr>
           <td>Rating </td>

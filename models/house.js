@@ -25,7 +25,10 @@ const addressSchema = new Schema({
     type: String, 
     required: true
   }, 
-  apartmentNumber: Number, 
+  apartmentNumber: {
+    type: Number,
+    required: true,
+  }, 
   city: {
     type: String, 
     required: true
@@ -42,7 +45,10 @@ const addressSchema = new Schema({
     type: Number,
     required: true
   }, 
-  neighborhood: String
+  neighborhood: {
+    type: String,
+    required: true,
+  }
 },
 {
   timestamps: true
@@ -55,9 +61,18 @@ const houseSchema = new Schema(
       type: Number,
       required: true,
     },
-    bedrooms: Number,
-    bathrooms: Number,
-    size: Number,
+    bedrooms: {
+      type: Number,
+      required: true,
+    },
+    bathrooms: {
+      type: Number,
+      required: true,
+    },
+    size: {
+      type: Number,
+      required: true,
+    },
     address: addressSchema,
     propertyType: {
       type: String,
