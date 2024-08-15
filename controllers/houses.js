@@ -33,6 +33,15 @@ async function create(req, res) {
     }
 
     const house = await House.create(req.body);
+    const dbEntry = await House.findOne({
+      'address.neighborhood': house.address.neighborhood
+    })
+    
+    if(dbEntry){
+      var notification = 'There are other people also looking in this neighborhood'
+      console.log(notification);
+    }
+    
     res.redirect('/houses')
   } catch (error) {
     console.log(error);
