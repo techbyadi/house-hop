@@ -52,7 +52,7 @@ async function create(req, res) {
 async function show(req, res) {
   try {
     const house = await House.findById(req.params.houseId).populate('addedBy');
-    console.log(house);
+    console.log("It should say undefined: ", typeof editReview);
     
     res.render('houses/show', {
       house
@@ -143,10 +143,17 @@ async function editReview(req, res) {
 
 async function updateReview(req, res) {
   try {
+    console.log("Inside update review function");
+    
     const house = await House.findById(req.params.houseId);
+    console.log("Reviewer is:", house.reviews.reviewer);
+    console.log("Full house object is:", house);
+    
+    
     if(house.reviews.reviewer.equals(req.session.user._id)){
       house.reviews.set(req.body)
       await house.save();
+      console.log("Full house object after saving is", house);
       res.redirect(`/houses/${house._id}`)
     }
     else {

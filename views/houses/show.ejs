@@ -124,13 +124,10 @@
 
         </div>
       </tr>
-    </table>
+    </table><br>
 
-    <% if (house.visited==='Yes' ) { %>
-
-      <br>
-
-      <% if (house.reviews && typeof editReview==='undefined' ) { %>
+    <% if (house.visited ==='Yes') { %>
+      <% if (house.reviews && typeof editReview ==='undefined') { %>
         <table>
           <thead>
             <tr>
@@ -158,8 +155,7 @@
         </table>
         <% } %>
           <br>
-
-          <% if (!house.reviews && typeof editReview !=='undefined' && !editReview) { %>
+          <% if (!house.reviews && typeof editReview ==='undefined') { %>
             <table>
               <form id="add-review-form" action="/houses/<%= house.id %>/reviews" method="POST">
                 <tr>
@@ -194,7 +190,7 @@
 
               <% if (typeof editReview !=='undefined' && editReview) { %>
                 <table>
-                  <form id="add-review-form" action="/houses/<%= house.id %>/reviews?_method=PUT"" method=" POST">
+                  <form action="/houses/<%= house._id %>/reviews?_method=PUT" method="POST">
                     <tr>
                       <th colspan="2">Update Notes</th>
                     </tr>
