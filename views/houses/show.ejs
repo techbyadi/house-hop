@@ -117,7 +117,7 @@
 
   <br>
 
-<% if (house.reviews.length) { %>
+<% if (house.reviews) { %>
   <table>
     <thead>
       <tr>
@@ -126,18 +126,18 @@
         <th>Rating</th>
       </tr>
     </thead>
-    <% house.reviews.forEach(review =>  { %>
-      <% if (review.reviewer.equals(user?._id)) { %>
+      <% if (house.reviews.reviewer.equals(user?._id)) { %>
       <tbody>
-          <td><%= review.createdAt.toLocaleDateString() %></td>
-          <td><%= review.notes %></td>
-          <td><%= review.rating %></td>
+          <td><%= house.reviews.visitedDate.toLocaleDateString() %></td>
+          <td><%= house.reviews.notes %></td>
+          <td><%= house.reviews.rating %></td>
     </tbody>
       <% } %>
-    <% }) %>
   </table>
   <% } %>
 <br>
+
+<% if (!house.reviews) { %>
 <table>
   <form id="add-review-form" action="/houses/<%= house.id %>/reviews" method="POST">
 <tr>
@@ -168,6 +168,7 @@
 
 </form>
 </table>
+<% } %>
 <% } %>
 
 <%- include('../partials/footer') %>

@@ -1,0 +1,77 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/houses/index.css" />
+<%- include('../partials/nav') %>
+
+<h2>Favorite Houses (Rating 3+ and within budget)</h2>
+<div class = "wishlist-page">
+  <% favHouses.forEach(house => { %>
+    <a href="/houses/<%= house._id %>">
+    <div class="house-tile">
+      <ul>
+          <li>
+          Price: <%= house.price %>
+          </li>
+            <br>
+            <li>
+          Number of bedrooms: <%= house.bedrooms %>
+        </li>
+            <br>
+            <li>
+          Number of bathrooms: <%= house.bathrooms %>
+        </li>
+      </ul>
+    </div> 
+    </a>
+  <% }) %>
+
+</div>
+
+<h2>Visited Homes with ratings more than 3</h2>
+<div class = "wishlist-page">
+  <% threePlusRatingHouses.forEach(house => { %>
+    <a href="/houses/<%= house._id %>">
+    <div class="house-tile">
+      <ul>
+          <li>
+          Price: <%= house.price %>
+          </li>
+            <br>
+            <li>
+          Number of bedrooms: <%= house.bedrooms %>
+        </li>
+            <br>
+            <li>
+          Number of bathrooms: <%= house.bathrooms %>
+        </li>
+      </ul>
+    </div> 
+    </a>
+  <% }) %>
+
+</div>
+
+<h2>Visited homes within my budget</h2>
+<div class = "wishlist-page">
+  <% budgetHouses.forEach(house => { %>
+    <a href="/houses/<%= house._id %>">
+    <div class="house-tile">
+      <ul>
+          <li>
+          Price: <%= house.price %>
+          </li>
+            <br>
+            <li>
+          Number of bedrooms: <%= house.bedrooms %>
+        </li>
+            <br>
+            <li>
+          Number of bathrooms: <%= house.bathrooms %>
+        </li>
+      </ul>
+    </div> 
+    </a>
+    <% }) %>
+
+</div>
+
+<%- include('../partials/footer') %>

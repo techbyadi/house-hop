@@ -9,6 +9,9 @@ const reviewSchema = new Schema({
     max: 5,
     default: 5
   },
+  visitedDate : {
+    type: Date
+  },
   reviewer: {
     type: Schema.Types.ObjectId,
     ref: "User"
@@ -71,7 +74,7 @@ const houseSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     }, 
-    reviews: [reviewSchema],
+    reviews: reviewSchema,
     visited: {
       type: String,
       enum: ["Yes", "No"],

@@ -18,10 +18,12 @@ async function signUp(req, res) {
   const user = await User.create(req.body)
   req.session.user = {
     username: user.username,
-    _id: user._id
+    _id: user._id,
+    minPrice: user.minPrice,
+    maxPrice: user.maxPrice
   }
-  req.session.save(() => {
-    res.redirect('/')
+    req.session.save(() => {
+    res.redirect('/houses')
   })
 }
 
@@ -43,7 +45,9 @@ async function signIn(req, res) {
   }
   req.session.user = {
     username: userInDatabase.username,
-    _id: userInDatabase._id
+    _id: userInDatabase._id,
+    minPrice: userInDatabase.minPrice,
+    maxPrice: userInDatabase.maxPrice
   }
   req.session.save(() => {
   res.redirect('/houses')

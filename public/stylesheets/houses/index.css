@@ -1,4 +1,4 @@
-.visited-homes, .planning-to-visit{
+.visited-homes, .planning-to-visit, .wishlist-page{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

@@ -41,6 +41,10 @@ body > main h1:first-child {
   margin-bottom: 50px;
 }
 
+h2 {
+  font-family: "Font Awesome 5 Free";
+}
+
 body > nav {
   grid-area: nav;
   background-color: #5799a9;

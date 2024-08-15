@@ -2,7 +2,7 @@ import { House } from "../models/house.js"
 
 async function index(req, res) {
   try {
-    const houses = await House.find({}).populate('addedBy')
+    const houses = await House.find({}).populate('addedBy')    
     res.render('houses/index', {
       houses
   })
@@ -31,6 +31,7 @@ async function create(req, res) {
       zipCode: req.body.zipCode,
       neighborhood: req.body.neighborhood
     }
+
     const house = await House.create(req.body);
     res.redirect('/houses')
   } catch (error) {
@@ -41,7 +42,9 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
-    const house = await House.findById(req.params.houseId).populate(['addedBy', 'reviews.reviewer']);
+    const house = await House.findById(req.params.houseId).populate('addedBy');
+    console.log(house);
+    
     res.render('houses/show', {
       house
     })
@@ -55,9 +58,14 @@ async function show(req, res) {
 async function createReview(req, res) {
   try {
     const house = await House.findById(req.params.houseId);
-    req.body.reviewer = req.session.user._id;
-    house.reviews.push(req.body);
+    house.reviews = {
+      notes : req.body.notes,
+      rating: req.body.rating,
+      visitedDate: req.body.visitedDate,
+      reviewer : req.session.user._id,
+    }
     await house.save();
+    
     res.redirect(`/houses/${house._id}`);
   } catch (error) {
     console.log(error);
