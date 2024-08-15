@@ -3,6 +3,11 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
+  firstname: {
+    type: String, 
+    required: true
+  }, 
+  lastname: String,
   username: {
     type: String,
     required: true,

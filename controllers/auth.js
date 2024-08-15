@@ -19,6 +19,7 @@ async function signUp(req, res) {
   req.session.user = {
     username: user.username,
     _id: user._id,
+    firstname: user.firstname,
     minPrice: user.minPrice,
     maxPrice: user.maxPrice
   }
@@ -46,6 +47,7 @@ async function signIn(req, res) {
   req.session.user = {
     username: userInDatabase.username,
     _id: userInDatabase._id,
+    firstname: userInDatabase.firstname,
     minPrice: userInDatabase.minPrice,
     maxPrice: userInDatabase.maxPrice
   }
