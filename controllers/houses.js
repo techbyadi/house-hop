@@ -33,12 +33,12 @@ async function create(req, res) {
     }
 
     const house = await House.create(req.body);
-    const dbEntry = await House.findOne({
+    const countOfHouses= await House.countDocuments({
       'address.neighborhood': house.address.neighborhood
     })
     
-    if(dbEntry){
-      var notification = 'There are other people also looking in this neighborhood'
+    if(countOfHouses){
+      var notification = `There are ${countOfHouses} other people also looking in this neighborhood`
       console.log(notification);
     }
     
