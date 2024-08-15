@@ -36,6 +36,7 @@ main {
 }
 
 h4#notification{
-align-self: center;
-font-family: "Font Awesome 5 Free";
+  align-self: center;
+  font-family: "Font Awesome 5 Free";
+  color: rgb(214, 222, 223);
 }

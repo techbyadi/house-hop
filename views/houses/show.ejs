@@ -1,5 +1,13 @@
 <%- include('../partials/html-head') %>
+<script defer src="/javascripts/helper.js"></script>
 <%- include('../partials/nav') %>
+
+<% if (typeof houseCount !== 'undefined' && houseCount > 1) { %>
+  <h4 id="notification">
+    There are <%= houseCount-1 %> houses saved from this neighborhood already!!!
+  </h4>
+<% } %>
+
     <table>
       <tr>
         <th colspan="2">House Details</th>

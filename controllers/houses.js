@@ -54,8 +54,9 @@ async function create(req, res) {
 async function show(req, res) {
   try {
     const house = await House.findById(req.params.houseId).populate('addedBy');
+    const houseCount = req.query.houseCount;
     res.render('houses/show', {
-      house
+      house, houseCount
     })
   } catch (error) {
     console.log(error);
@@ -110,11 +111,25 @@ async function update(req, res) {
       if (req.body[key] === "") delete req.body[key];
     }
 
-    console.log(req.body);
+    req.body.address = {
+      streetName : req.body.streetName,
+      apartmentNumber: req.body.apartmentNumber,
+      city: req.body.city,
+      state: req.body.state,
+      country: req.body.country,
+      zipCode: req.body.zipCode,
+      neighborhood: req.body.neighborhood
+    }
+    
     const house = await House.findByIdAndUpdate(
       req.params.houseId, req.body, {new: true}
     )
-    res.redirect(`/houses/${house._id}`)
+
+    const houseCount= await House.countDocuments({
+      'address.neighborhood': house.address.neighborhood
+    })
+
+    res.redirect(`/houses/${house._id}?houseCount=${houseCount}`)
   } catch (error) {
     console.log(error);
     res.redirect('/houses');
