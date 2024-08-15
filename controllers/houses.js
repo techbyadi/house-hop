@@ -112,6 +112,44 @@ async function update(req, res) {
   }
 }
 
+async function editReview(req, res) {
+  try {
+    const house = await House.findById(req.params.houseId);
+    const editReview = true;
+    if(house.reviews.reviewer.equals(req.session.user._id)){
+      res.render('houses/show', {
+        house,
+        editReview
+      })
+    }
+    else {
+      throw new Error('Not authorized')
+    }
+    
+  } catch (error) {
+    console.log(err)
+    res.redirect('/houses')
+  }
+}
+
+async function updateReview(req, res) {
+  try {
+    const house = await House.findById(req.params.houseId);
+    if(house.reviews.reviewer.equals(req.session.user._id)){
+      house.reviews.set(req.body)
+      await house.save();
+      res.redirect(`/houses/${house._id}`)
+    }
+    else {
+      throw new Error('Not authorized')
+    }
+
+  } catch (error) {
+    console.log(error)
+    res.redirect('/houses')
+  }
+}
+
 export {
   index,
   newHouse as new,
@@ -120,5 +158,7 @@ export {
   createReview,
   deleteHouse as delete,
   edit,
-  update
+  update,
+  editReview,
+  updateReview
 }
