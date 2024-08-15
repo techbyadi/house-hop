@@ -1,24 +1,55 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<table>
 <form class="auth" action="/auth/sign-up" method="POST">
-  <h1>Create a new account!</h1>
-  <label for="username">Username:</label>
-  <input type="text" name="username" id="username" /> </br></br>
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password" /> </br></br>
-  <label for="confirmPassword">Confirm Password:</label>
-  <input type="password" name="confirmPassword" id="confirmPassword" /> </br> </br>
+  <tr>
+    <th colspan="2">Create a new account</th>
+  </tr>
+  <tr>
+    <td>Username</td>
+    <td><input type="text" name="username" id="username" /></label></td>
+  </tr>
+  
+  <tr>
+    <td>Password</td>
+    <td> <input type="password" name="password" id="password" /></label></td>
+  </tr>
 
-  <h1>Enter your dream home details here: </h1>
-  <label for="minBudget">Min budget: </label>
-  <input type="text" name="minPrice" id="minBudget" /> </br></br>
-  <label for="maxBudget">Max budget: </label>
-  <input type="text" name="maxPrice" id="maxBudget" /> </br></br>
-  <label for="homeType">Home Type: </label>
-  <input type="text" name="homeType" id="homeType" /> </br></br> </br>
+  <tr>
+    <td>Confirm Password</td>
+    <td> <input type="password" name="confirmPassword" id="confirmPassword" /></label></td>
+  </tr>
 
-  <button type="submit">Sign up</button>
+  <tr>
+    <th colspan="2">Specify Your Preferences</th>
+  </tr>
+
+  <tr>
+    <td>Min Budget ($) </td>
+    <td> <input type="text" name="minPrice" id="minBudget" /></label></td>
+  </tr>
+
+  <tr>
+    <td>Max Budget ($)</td>
+    <td><input type="text" name="maxPrice" id="maxBudget" /></label></td>
+  </tr>
+
+  <tr>
+    <td>Property Type</td>
+    <td><select name="homeType" id="homeType">
+      <option value="Single Family">Single Family</option>
+      <option value="Town House">Town House</option>
+      <option value="Condo">Condo</option>
+      <option value="Multi Family">Multi Family</option>
+    </select>
+  </td>
+  </tr>
+
+  <tr>
+    <th class="form-button" colspan="2"><button type="submit">Sign Up</button></th>
+  </tr>
+  
 </form>
-
+</table>
 <%- include('../partials/footer') %>

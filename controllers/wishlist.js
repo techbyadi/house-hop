@@ -6,6 +6,7 @@ async function index(req, res) {
     const houses = await House.find({});
 
     const favHouses = houses.filter((house) => {
+      if(house.reviews){
       return (
         house.addedBy.equals(user?._id) &&
         house.visited === "Yes" &&
@@ -13,6 +14,7 @@ async function index(req, res) {
         house.price >= user.minPrice &&
         house.price <= user.maxPrice
       );
+    }
     });
 
     const budgetHouses = houses.filter((house) => {
@@ -25,12 +27,13 @@ async function index(req, res) {
     });
 
     const threePlusRatingHouses = houses.filter((house) => {
-      
+      if(house.reviews){
       return (
         house.addedBy.equals(user?._id) &&
         house.visited === "Yes" &&
         house.reviews.rating >= 3
       );
+    }
     });
 
     res.render("wishlist/index", {
