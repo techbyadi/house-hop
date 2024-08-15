@@ -3,8 +3,10 @@ import { House } from "../models/house.js"
 async function index(req, res) {
   try {
     const houses = await House.find({}).populate('addedBy')    
+    const houseCount = req.query.houseCount;
+    console.log("Passed notification",  );
     res.render('houses/index', {
-      houses
+      houses, houseCount
   })
   } catch (error) {
     console.log(error);
@@ -33,16 +35,16 @@ async function create(req, res) {
     }
 
     const house = await House.create(req.body);
-    const countOfHouses= await House.countDocuments({
+    const houseCount= await House.countDocuments({
       'address.neighborhood': house.address.neighborhood
     })
     
-    if(countOfHouses){
-      var notification = `There are ${countOfHouses} other people also looking in this neighborhood`
+    /* if(countOfHouses){
+      var notification = `There are ${countOfHouses-1} houses saved from this neighborhood already!`
       console.log(notification);
-    }
+    } */
     
-    res.redirect('/houses')
+    res.redirect(`/houses?houseCount=${houseCount}`)
   } catch (error) {
     console.log(error);
     res.redirect('/houses/new');
@@ -52,8 +54,6 @@ async function create(req, res) {
 async function show(req, res) {
   try {
     const house = await House.findById(req.params.houseId).populate('addedBy');
-    console.log("It should say undefined: ", typeof editReview);
-    
     res.render('houses/show', {
       house
     })

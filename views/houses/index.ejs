@@ -2,7 +2,22 @@
 <link rel="stylesheet" href="/stylesheets/houses/index.css" />
 <%- include('../partials/nav') %>
 
-<h2>Planning to Visit</h2>
+<% if (typeof houseCount !== 'undefined' && houseCount) { %>
+  <h4 id="notification" style="color: rgb(214, 222, 223);">
+    There are <%= houseCount %> houses saved from this neighborhood already!!!
+  </h4>
+
+
+<!-- Add this to a JS file and need to display the same after user updates the neighborhood (on show page) --> 
+<script>
+    setTimeout(() => {
+      document.getElementById('notification').style.display = 'none';
+      }, 5000); 
+</script>
+  
+<% } %>
+
+<h2>Planning to Visit</h2> 
 <div class = "planning-to-visit">
 <a href="/houses/new"><div class="house-tile" id="add-home">
 </div></a>

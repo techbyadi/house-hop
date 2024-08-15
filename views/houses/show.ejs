@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-  <%- include('../partials/nav') %>
+<%- include('../partials/nav') %>
     <table>
       <tr>
         <th colspan="2">House Details</th>
@@ -126,37 +126,37 @@
       </tr>
     </table><br>
 
-    <% if (house.visited ==='Yes') { %>
-      <% if (house.reviews && typeof editReview ==='undefined') { %>
-        <table>
-          <thead>
-            <tr>
-              <th>Visted Date</th>
-              <th>Notes</th>
-              <th>Rating</th>
-              <th></th>
-            </tr>
-          </thead>
-          <% if (house.reviews.reviewer.equals(user?._id)) { %>
-            <tbody>
-              <td>
-                <%= house.reviews.visitedDate.toLocaleDateString() %>
-              </td>
-              <td>
-                <%= house.reviews.notes %>
-              </td>
-              <td>
-                <%= house.reviews.rating %>
-              </td>
-              <th class="form-button" colspan="2"> <a href="/houses/<%= house._id %>/reviews/edit">
-                  <button class="btn">Edit Comment</button></th>
-            </tbody>
-            <% } %>
-        </table>
+<% if (house.visited ==='Yes') { %>
+  <% if (house.reviews && typeof editReview ==='undefined') { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Visted Date</th>
+          <th>Notes</th>
+          <th>Rating</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% if (house.reviews.reviewer.equals(user?._id)) { %>
+        <tbody>
+          <td>
+            <%= house.reviews.visitedDate.toLocaleDateString() %>
+          </td>
+          <td>
+            <%= house.reviews.notes %>
+          </td>
+          <td>
+            <%= house.reviews.rating %>
+          </td>
+          <th class="form-button" colspan="2"> <a href="/houses/<%= house._id %>/reviews/edit">
+              <button class="btn">Edit Comment</button></th>
+        </tbody>
         <% } %>
-          <br>
-          <% if (!house.reviews && typeof editReview ==='undefined') { %>
-            <table>
+    </table>
+  <% } %>
+    <br>
+  <% if (!house.reviews && typeof editReview ==='undefined') { %>
+    <table>
               <form id="add-review-form" action="/houses/<%= house.id %>/reviews" method="POST">
                 <tr>
                   <th colspan="2">Add Notes</th>
@@ -185,45 +185,45 @@
                 </tr>
 
               </form>
-            </table>
-            <% } %>
+    </table>
+  <% } %>
 
-              <% if (typeof editReview !=='undefined' && editReview) { %>
-                <table>
-                  <form action="/houses/<%= house._id %>/reviews?_method=PUT" method="POST">
-                    <tr>
-                      <th colspan="2">Update Notes</th>
-                    </tr>
-                    <tr>
-                      <td>Visited Date</td>
-                      <td><input type="date" name="visitedDate"
-                          value="<%= new Date(house.reviews.visitedDate).toISOString().split('T')[0] %>"> </td>
-                    </tr>
-                    <tr>
-                      <td>Notes</td>
-                      <td> <textarea name="notes" id="content-textarea"><%= house.reviews.notes %></textarea></td>
-                    </tr>
-                    <tr>
-                      <td>Rating </td>
-                      <td><select name="rating" id="rating-select">
-                          <option value="<%= house.reviews.rating %>" selected>
-                            <%= house.reviews.rating %>
-                          </option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th class="form-button" colspan="2"><button type="submit">Update</button></th>
-                    </tr>
+  <% if (typeof editReview !=='undefined' && editReview) { %>
+    <table>
+      <form action="/houses/<%= house._id %>/reviews?_method=PUT" method="POST">
+        <tr>
+          <th colspan="2">Update Notes</th>
+        </tr>
+        <tr>
+          <td>Visited Date</td>
+          <td><input type="date" name="visitedDate"
+              value="<%= new Date(house.reviews.visitedDate).toISOString().split('T')[0] %>"> </td>
+        </tr>
+        <tr>
+          <td>Notes</td>
+          <td> <textarea name="notes" id="content-textarea"><%= house.reviews.notes %></textarea></td>
+        </tr>
+        <tr>
+          <td>Rating </td>
+          <td><select name="rating" id="rating-select">
+              <option value="<%= house.reviews.rating %>" selected>
+                <%= house.reviews.rating %>
+              </option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th class="form-button" colspan="2"><button type="submit">Update</button></th>
+        </tr>
+    
+      </form>
+    </table>
+  <% } %>
+<% } %>
 
-                  </form>
-                </table>
-                <% } %>
-                  <% } %>
-
-                    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

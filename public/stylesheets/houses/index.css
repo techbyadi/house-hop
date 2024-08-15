@@ -34,3 +34,8 @@ main {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+h4#notification{
+align-self: center;
+font-family: "Font Awesome 5 Free";
+}
