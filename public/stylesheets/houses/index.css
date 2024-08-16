@@ -5,12 +5,11 @@
 }
 
 .house-tile {
-  width: 200px;
-  height: 200px;
+  width: 230px;
+  height: 230px;
   background-color: rgb(214, 222, 223);
   border-radius: 8px;
   margin: 8px 8px 8px 8px;
-  box-shadow: 1px 1px 4px rgb(218, 223, 225);
 
 }
 
@@ -25,9 +24,36 @@ div.house-tile {
   color: rgb(6, 40, 52);
 }
 
-a, u {
-  text-decoration: none;
+
+#image-tile {
+width: 230px;
+height: 157px;
+padding-left: 1px;
+margin-top: 1px;
+padding-right: 5px;
+padding-bottom: 5px;
 }
+
+#house-details {
+width: 230px;
+height: 73px;
+}
+
+a.pricetag {
+  text-decoration: none;
+  color: rgb(6, 40, 52);
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+a.address-bed-bath-size{
+  text-decoration: none;
+  color: rgb(6, 40, 52);
+  font-size: 13px;
+  margin-left: 5px;
+}
+
 
 main {
   display: flex;

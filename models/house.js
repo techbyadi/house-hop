@@ -57,6 +57,7 @@ const addressSchema = new Schema({
 
 const houseSchema = new Schema(
   {
+    houseImage: String,
     price: {
       type: Number,
       required: true,
@@ -76,14 +77,13 @@ const houseSchema = new Schema(
     address: addressSchema,
     propertyType: {
       type: String,
-      enum: ["Single Family", "Town House", "Condo", "Multi Family"],
+      enum: ["single_family", "townhomes", "multi_family", "apartment", "condos", "land", "mobile"],
     },
     builtYear: {
       type: Number,
-      default: function () {
-        return new Date().getFullYear();
-      },
+      default: 1968,
       min: 1930,
+      max: 2024
     },
     addedBy: {
       type: Schema.Types.ObjectId,

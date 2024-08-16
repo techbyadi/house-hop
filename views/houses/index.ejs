@@ -14,51 +14,39 @@
 <div class = "planning-to-visit">
 <a href="/houses/new"><div class="house-tile" id="add-home">
 </div></a>
-  <% houses.forEach(house => { %>
-    <% if (house.addedBy.equals(user?._id) && house.visited === 'No' ) { %>
-    <a href="/houses/<%= house._id %>">
-    <div class="house-tile">
-      <ul>
-          <li>
-          Price: <%= house.price %>
-          </li>
-            <br>
-            <li>
-          Number of bedrooms: <%= house.bedrooms %>
-        </li>
-            <br>
-            <li>
-          Number of bathrooms: <%= house.bathrooms %>
-        </li>
-      </ul>
-    </div> 
-    </a>
-    <% } %>
-    <% }) %>
 
+
+<% houses.forEach(house => { %>
+  <% if (house.addedBy.equals(user?._id) && house.visited === 'No' ) { %>
+<a href="/houses/<%= house._id %>">
+  <div class="house-tile"> 
+    <div id="image-tile"><img id="image-tile" src="<%= house.houseImage %>" alt="house image"></div>
+    <div id="house-details">
+      <a class="pricetag">$ <%= house.price %></a><br> 
+      <a class="address-bed-bath-size"><%= house.address.streetName %></a><br>
+      <a class="address-bed-bath-size"><%= house.bedrooms %> Bed | <%= house.bathrooms %> Bath | <%= house.size %> sq ft</a>
+    </div>
+  </div>
+</a>
+  <% } %>
+<% }) %>
 </div>
 
 <h2>Visited Homes </h2>
 <div class = "visited-homes">
   <% houses.forEach(house => { %>
     <% if (house.addedBy.equals(user?._id) && house.visited === 'Yes' ) { %>
-    <a href="/houses/<%= house._id %>">
-    <div class="house-tile">
-      <ul>
-          <li>
-          Price: <%= house.price %>
-          </li>
-            <br>
-            <li>
-          Number of bedrooms: <%= house.bedrooms %>
-        </li>
-            <br>
-            <li>
-          Number of bathrooms: <%= house.bathrooms %>
-        </li>
-      </ul>
-    </div> </a>
-    <% } %>
-    <% }) %>
+      <a href="/houses/<%= house._id %>">
+        <div class="house-tile"> 
+          <div id="image-tile"><img id="image-tile" src="<%= house.houseImage %>" alt="house image"></div>
+          <div id="house-details">
+            <a class="pricetag">$ <%= house.price %></a><br> 
+            <a class="address-bed-bath-size"><%= house.address.streetName %></a><br>
+            <a class="address-bed-bath-size"><%= house.bedrooms %> Bed | <%= house.bathrooms %> Bath | <%= house.size %> sq ft</a>
+          </div>
+        </div>
+      </a>
+  <% } %>
+  <% }) %>
 </div>
 <%- include('../partials/footer') %>

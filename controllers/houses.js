@@ -1,4 +1,5 @@
 import { House } from "../models/house.js"
+import fetch from "node-fetch";
 
 async function index(req, res) {
   try {
@@ -14,39 +15,102 @@ async function index(req, res) {
   }
 }
 
-async function newHouse(req, res) {
-  res.render('houses/new.ejs');
+async function newHouse(req, res) { 
+
+  const isHousePresent = await req.query.isHousePresent;
+  res.render('houses/new.ejs', {
+    isHousePresent
+  });
 }
 
 async function create(req, res) {
+  
   try {
-    req.body.addedBy = req.session.user._id
+    req.body.addedBy = req.session.user._id;
     for (let key in req.body) {
       if (req.body[key] === "") delete req.body[key];
     }
-    req.body.address = {
-      streetName : req.body.streetName,
-      apartmentNumber: req.body.apartmentNumber,
-      city: req.body.city,
-      state: req.body.state,
-      country: req.body.country,
-      zipCode: req.body.zipCode,
-      neighborhood: req.body.neighborhood
+
+    const response = await fetch(
+      "https://realty-in-us.p.rapidapi.com/properties/v3/list",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-rapidapi-host": "realty-in-us.p.rapidapi.com",
+          "x-rapidapi-key": process.env.RAPIDAPI_KEY,
+        },
+        body: JSON.stringify({
+          limit: 1,
+          offset: 0,
+          address: req.body.streetName,
+          city: req.body.city,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
+    
+    const data = await response.json();
+
+    const houseTotal = data.data.home_search.total;
+
+    console.log("Data line 55: ", houseTotal);
+
+    var isHousePresent = "yes";
+    if(houseTotal === 0){
+      isHousePresent = "no";
+      console.log("Is house present's value: ", isHousePresent);
+      res.redirect(`/houses/new?isHousePresent=${isHousePresent}`)
+    }
+
+    else {
+    const result = data.data.home_search.results[0];
+
+    const houseImage = result.primary_photo.href;
+    const price = result.list_price;
+    const propertyType = result.description.type;
+    const bedrooms = result.description.beds;
+    const bathrooms = result.description.baths_full;
+    const size = result.description.sqft;
+    const streetName = req.body.streetName;
+    const city = result.location.address.city;
+    const state = result.location.address.state_code;
+    const country = result.location.address.country;
+    const zipCode = result.location.address.postal_code;
+
+    req.body.address = {
+      streetName : streetName,
+      apartmentNumber: "123",
+      city: city,
+      state: state,
+      country: country,
+      zipCode: zipCode,
+      neighborhood: city
+    }
+    
+    req.body.houseImage = houseImage;
+    req.body.price = price;
+    req.body.propertyType = propertyType;
+    req.body.bedrooms = bedrooms;
+    req.body.bathrooms = bathrooms
+    req.body.size = size;
+
+    console.log("Full req.body before proceeding:", req.body);
+    
     const house = await House.create(req.body);
+
     const houseCount= await House.countDocuments({
       'address.neighborhood': house.address.neighborhood
-    })
-    
-    /* if(countOfHouses){
-      var notification = `There are ${countOfHouses-1} houses saved from this neighborhood already!`
-      console.log(notification);
-    } */
-    
-    res.redirect(`/houses?houseCount=${houseCount}`)
+    }) 
+  
+      res.redirect(`/houses?houseCount=${houseCount}`)
+    }
   } catch (error) {
-    console.log(error);
+    console.error('There\'s an error while making API request', error.message);
     res.redirect('/houses/new');
   }
 }
@@ -128,7 +192,7 @@ async function update(req, res) {
     const houseCount= await House.countDocuments({
       'address.neighborhood': house.address.neighborhood
     })
-
+    
     res.redirect(`/houses/${house._id}?houseCount=${houseCount}`)
   } catch (error) {
     console.log(error);

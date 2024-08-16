@@ -48,6 +48,8 @@ body > nav {
   justify-content: flex-end;
   align-items: center;
   padding: 40px 20px 40px 25px;
+  border-color: #0a424d;
+  border-style: solid ;
 }
 
 nav > i {
@@ -97,4 +99,6 @@ body > section {
   align-items: center;
   justify-content: space-evenly;
   padding: 30px 20px 30px 30px;
+  border-color: #0a424d;
+  border-style: solid;
 }
