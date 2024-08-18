@@ -3,9 +3,10 @@
 <script defer src="/javascripts/helper.js"></script>
 <%- include('../partials/nav') %>
 
+<% if (user) { %>
 <% if (typeof houseCount !== 'undefined' && houseCount > 1) { %>
   <h4 id="notification">
-    There are <%= houseCount-1 %> houses saved from this neighborhood already!!!
+    Looks like this house got fans, it's been saved <%= houseCount %> time(s) by other users before!!
   </h4>
 <% } %>
 
@@ -32,7 +33,7 @@
 <% }) %>
 </div>
 
-<h2>Visited Homes </h2>
+<h2>Visited Houses </h2>
 <div class = "visited-homes">
   <% houses.forEach(house => { %>
     <% if (house.addedBy.equals(user?._id) && house.visited === 'Yes' ) { %>
@@ -49,4 +50,5 @@
   <% } %>
   <% }) %>
 </div>
+<% } %>
 <%- include('../partials/footer') %>

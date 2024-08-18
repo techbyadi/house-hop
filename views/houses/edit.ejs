@@ -1,6 +1,7 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+
 <table>
   <form action="/houses/<%= house._id %>?_method=PUT" method="POST">
   <tr>
@@ -18,10 +19,10 @@
     </option>
     <option value="single_family">Single Family</option>
     <option value="townhomes">Town House</option>
-    <option value="condos">Condo</option>
+    <option value="condos">Condos</option>
     <option value="multi_family">Multi Family</option>
-    <option value="condos">land</option>
-    <option value="condos">mobile</option>
+    <option value="land">Land</option>
+    <option value="mobile">Mobile</option>
   </select>
 </td>
 </tr>
@@ -106,17 +107,6 @@
     <input type="text" name="zipCode" id="zipCode" value="<%= house.address.zipCode %>" required />
   </td>
 </tr>
-
-
-<tr>
-  <td>
-    Neighborhood
-  </td>
-  <td>
-    <input type="text" name="neighborhood" id="neighborhood" value="<%= house.address.neighborhood %>" required />
-  </td>
-</tr>
-
 
 
 <tr>

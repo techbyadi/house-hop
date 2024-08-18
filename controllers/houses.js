@@ -16,11 +16,16 @@ async function index(req, res) {
 }
 
 async function newHouse(req, res) { 
-
-  const isHousePresent = await req.query.isHousePresent;
-  res.render('houses/new.ejs', {
+  try {
+    const isHousePresent = await req.query.isHousePresent;
+    res.render('houses/new.ejs', {
     isHousePresent
   });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/houses');
+  }
+  
 }
 
 async function create(req, res) {
@@ -89,7 +94,6 @@ async function create(req, res) {
       state: state,
       country: country,
       zipCode: zipCode,
-      neighborhood: city
     }
     
     req.body.houseImage = houseImage;
@@ -104,13 +108,15 @@ async function create(req, res) {
     const house = await House.create(req.body);
 
     const houseCount= await House.countDocuments({
-      'address.neighborhood': house.address.neighborhood
+      'address.streetName': house.address.streetName,
+      'address.city': house.address.city,
+      'addedBy': { $ne: req.session.user._id }
     }) 
   
       res.redirect(`/houses?houseCount=${houseCount}`)
     }
   } catch (error) {
-    console.error('There\'s an error while making API request', error.message);
+    console.error('There\'s an error while making API request:', error.message);
     res.redirect('/houses/new');
   }
 }
@@ -181,8 +187,7 @@ async function update(req, res) {
       city: req.body.city,
       state: req.body.state,
       country: req.body.country,
-      zipCode: req.body.zipCode,
-      neighborhood: req.body.neighborhood
+      zipCode: req.body.zipCode
     }
     
     const house = await House.findByIdAndUpdate(
@@ -190,8 +195,10 @@ async function update(req, res) {
     )
 
     const houseCount= await House.countDocuments({
-      'address.neighborhood': house.address.neighborhood
-    })
+      'address.streetName': house.address.streetName,
+      'address.city': house.address.city,
+      'addedBy': { $ne: req.session.user._id }
+    }) 
     
     res.redirect(`/houses/${house._id}?houseCount=${houseCount}`)
   } catch (error) {

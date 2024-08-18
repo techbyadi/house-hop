@@ -6,5 +6,5 @@ function removeNotification(){
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  setTimeout(removeNotification, 5000);
+  setTimeout(removeNotification, 6000);
 });

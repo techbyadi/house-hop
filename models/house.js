@@ -44,10 +44,6 @@ const addressSchema = new Schema({
   zipCode: {
     type: Number,
     required: true
-  }, 
-  neighborhood: {
-    type: String,
-    required: true,
   }
 },
 {

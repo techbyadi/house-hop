@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/stylesheets/houses/index.css" />
 <%- include('../partials/nav') %>
 
-<h2>Favorite Houses (Rating 3+ and within budget)</h2>
+<h2>Top Picks (Rated 4+ and Within Budget)</h2>
 <div class = "wishlist-page">
   <% favHouses.forEach(house => { %>
     <a href="/houses/<%= house._id %>">
@@ -19,9 +19,9 @@
 
 </div>
 
-<h2>Visited Homes with ratings more than 3</h2>
+<h2>Highly Rated Finds (Rating Over 4)</h2>
 <div class = "wishlist-page">
-  <% threePlusRatingHouses.forEach(house => { %>
+  <% fourPlusRatingHouses.forEach(house => { %>
     <a href="/houses/<%= house._id %>">
       <div class="house-tile"> 
         <div id="image-tile"><img id="image-tile" src="<%= house.houseImage %>" alt="house image"></div>
@@ -36,7 +36,7 @@
 
 </div>
 
-<h2>Visited homes within my budget</h2>
+<h2>Budget-Friendly Finds</h2>
 <div class = "wishlist-page">
   <% budgetHouses.forEach(house => { %>
     <a href="/houses/<%= house._id %>">

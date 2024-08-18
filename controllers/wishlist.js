@@ -10,7 +10,7 @@ async function index(req, res) {
       return (
         house.addedBy.equals(user?._id) &&
         house.visited === "Yes" &&
-        house.reviews.rating >= 3 &&
+        house.reviews.rating >= 4 &&
         house.price >= user.minPrice &&
         house.price <= user.maxPrice
       );
@@ -26,19 +26,19 @@ async function index(req, res) {
       );
     });
 
-    const threePlusRatingHouses = houses.filter((house) => {
+    const fourPlusRatingHouses = houses.filter((house) => {
       if(house.reviews){
       return (
         house.addedBy.equals(user?._id) &&
         house.visited === "Yes" &&
-        house.reviews.rating >= 3
+        house.reviews.rating >= 4
       );
     }
     });
 
     res.render("wishlist/index", {
       budgetHouses,
-      threePlusRatingHouses,
+      fourPlusRatingHouses,
       favHouses,
     });
   } catch (error) {
