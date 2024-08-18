@@ -1,63 +1,43 @@
-# MEN Stack with Session Auth Template
+# **HouseHop**
+**By: [Aditya Sharma](https://www.linkedin.com/in/aditya-sharma-3a0b6a190/)**
 
-This is a MEN Stack session auth template.
+![HouseHop](./public/stylesheets/househop.webp) 
 
-Use this to go build things! 🚀
 
-## To Use This Template
+// add Planner page screenshot here
 
-__Replace `<name-of-your-app-here>` (including the `<` and `>`) in the commands below with the name of your app!__
+## Project Link
+### Click here to go to **[HouseHop](https://house-hop-fdf44d2c76d6.herokuapp.com/)** 
 
-```bash
-git clone https://github.com/SEI-Remote/men-stack-session-auth-template.git <name-of-your-app-here>
-cd <name-of-your-app-here>
-```
 
-Once you are in the project directory:
+## Description: 
+// Enter project description here
 
-```bash
-rm -rf .git
-```
+## Technology Used 
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+ ![mongodb](./images/mongodb.png) 
+![express](./images/express.png) 
+![nodejs](./images/nodejs.png)
+![html](./images/html.png) 
+![css](./images/css.png)
+![js](./images/java-script.png)
+![mongoose](./images/mongoose.png)
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
 
-Re-initialize a git repository:
 
-```bash
-git init
-```
+## Project material: 
 
-Create a repo for this project on GitHub and add that remote to your project with `git remote add origin Your-repo-URL-here`.
+1.  Trello board
+2. ERD diagram
+3. Wireframes
+4. Initial planning doc
 
-Run npm i to fetch the template's dependencies:
+## Motivation
+// Enter motivation here 
 
-```bash
-npm i
-```
 
-touch a .env file:
+## Attributions
+// Enter attributions here
 
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-DATABASE_URL=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-SESSION_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-```
-
-Replace the `DATABASE_URL` and `SESSION_SECRET` with values that you provide.
-
-Delete this `README.md` file and finally, make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push origin main
-```
-
-You're done!
+## Icebox functionalities
+// Enter icebox features here
