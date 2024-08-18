@@ -9,7 +9,7 @@
  
 ## Description
 
-**[HouseHop](https://house-hop-fdf44d2c76d6.herokuapp.com/)** is an app designed to help homebuyers organize their home-hunting journey. It offers two key features: **Planner** and **Wishlist**.
+**[HouseHop](https://house-hop-fdf44d2c76d6.herokuapp.com/)** is an app designed to help homebuyers organize their home-hunting journey. Built using **MongoDB**, **Express.js**, and **Node.js**, it offers two key features: **Planner** and **Wishlist**.
 
 * **Planner**: In the Planner, users can add houses they plan to visit and take notes on those they’ve already seen.
 
@@ -46,6 +46,7 @@ This inspired me to build an app that streamlines the home-buying process—one 
 ## Attributions
 
 * [Rapid API](https://rapidapi.com/) for providng free API named **Realty in US** to reproduce public data and features of Realtor - [realtor.com](realtor.com)
+* [Heroku](https://www.heroku.com/): For providing a platform that enabled the deployment and hosting of this app
 * [Coolors](https://coolors.co/) for offering an excellent tool to generate vibrant color palettes!
 * [Icons8](https://icons8.com/icons) for providing high quality HTML, CSS, and JavaScript logos!
 
