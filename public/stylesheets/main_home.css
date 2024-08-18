@@ -88,7 +88,7 @@ nav > a.active {
 }
 
 body > section {
-  min-height: 100vh;
+  min-height: 70vh;
   background-image: url('./househop.webp'); 
   background-size: cover; 
   background-position: center;
