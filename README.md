@@ -1,12 +1,9 @@
 # **HouseHop**
 **By: [Aditya Sharma](https://www.linkedin.com/in/aditya-sharma-3a0b6a190/)**
 
-![HouseHop](./public/stylesheets/househop.webp) 
+![HouseHop-home](./assets/home.png)
+![HouseHop-planner](./assets/planner.png)
 
-
-// add Planner page screenshot here
-
- 
 ## Description
 
 **[HouseHop](https://house-hop-fdf44d2c76d6.herokuapp.com/)** is an app designed to help homebuyers organize their home-hunting journey. Built using **MongoDB**, **Express.js**, and **Node.js**, it offers two key features: **Planner** and **Wishlist**.
@@ -26,13 +23,13 @@ Click here to go to **[HouseHop](https://house-hop-fdf44d2c76d6.herokuapp.com/)*
 
 ## Technology Used 
 
- ![mongodb](./images/mongodb.png) 
-![express](./images/express.png) 
-![nodejs](./images/nodejs.png)
-![html](./images/html.png) 
-![css](./images/css.png)
-![js](./images/java-script.png)
-![mongoose](./images/mongoose.png)
+ ![mongodb](./assets/mongodb.png) 
+![express](./assets/express.png) 
+![nodejs](./assets/nodejs.png)
+![html](./assets/html.png) 
+![css](./assets/css.png)
+![js](./assets/java-script.png)
+![mongoose](./assets/mongoose.png)
 
 
 ## Motivation

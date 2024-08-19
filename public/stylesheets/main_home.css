@@ -89,7 +89,7 @@ nav > a.active {
 
 body > section {
   min-height: 70vh;
-  background-image: url('./househop.webp'); 
+  background-image:url('../images/homepage.webp');
   background-size: cover; 
   background-position: center;
   background-color: rgb(6, 40, 52);
