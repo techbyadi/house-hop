@@ -5,7 +5,6 @@ async function index(req, res) {
   try {
     const houses = await House.find({}).populate('addedBy')    
     const houseCount = req.query.houseCount;
-    console.log("Passed notification",  );
     res.render('houses/index', {
       houses, houseCount
   })
@@ -63,12 +62,9 @@ async function create(req, res) {
 
     const houseTotal = data.data.home_search.total;
 
-    console.log("Data line 55: ", houseTotal);
-
     var isHousePresent = "yes";
     if(houseTotal === 0){
       isHousePresent = "no";
-      console.log("Is house present's value: ", isHousePresent);
       res.redirect(`/houses/new?isHousePresent=${isHousePresent}`)
     }
 
@@ -103,8 +99,6 @@ async function create(req, res) {
     req.body.bathrooms = bathrooms
     req.body.size = size;
 
-    console.log("Full req.body before proceeding:", req.body);
-    
     const house = await House.create(req.body);
 
     const houseCount= await House.countDocuments({
@@ -229,17 +223,12 @@ async function editReview(req, res) {
 
 async function updateReview(req, res) {
   try {
-    console.log("Inside update review function");
-    
     const house = await House.findById(req.params.houseId);
-    console.log("Reviewer is:", house.reviews.reviewer);
-    console.log("Full house object is:", house);
     
     
     if(house.reviews.reviewer.equals(req.session.user._id)){
       house.reviews.set(req.body)
       await house.save();
-      console.log("Full house object after saving is", house);
       res.redirect(`/houses/${house._id}`)
     }
     else {
