@@ -3,9 +3,9 @@
 <%- include('../partials/nav') %>
 
 <% if (user) { %>
-<% if (typeof houseCount !== 'undefined' && houseCount > 1) { %>
+<% if (typeof houseCount !== 'undefined' && houseCount > 0) { %>
   <h4 id="notification">
-    Looks like this house got fans, it's been saved <%= houseCount %> time(s) by other users before!!
+    Looks like this house got fans, it's been saved <%= houseCount %> time(s) by other user(s) before!!
   </h4>
 <% } %>
 
